@@ -46,7 +46,6 @@ const ReservationPage = () => {
   const { reservation_date, saveReservationDate } = React.useContext(
     ReservationContext
   ) as ReservationContextType;
-  
   const [ mylessons, setMyLessons ] = useState<Mylessons[]>([]);
   const [filters, setFilters] = useState<Filters>({
     lesson_type: "",
@@ -67,7 +66,6 @@ const ReservationPage = () => {
             },
           }
         );
-        
         setLessontypes(response.data);
       } catch (error) {
         
@@ -109,8 +107,6 @@ const ReservationPage = () => {
       description: inputDescription,
       lesson_duration: inputDuration,
     });
-    
-    
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -128,7 +124,6 @@ const ReservationPage = () => {
   const handleDayClick = (e: React.MouseEvent<HTMLElement>, day: number) => {
     const target = e.target as HTMLElement;
     target.style.backgroundColor = "#f8f8f8";
-
     if (target.parentElement?.className === "day-container") {
       target.parentElement.style.backgroundColor = "#f8f8f8";
     }
@@ -139,14 +134,9 @@ const ReservationPage = () => {
         day + 1
       ).toISOString()
     );
-    
   };
-
   function getDaysInMonth(year: number, month: number): number {
     // month is 0-indexed: January = 0, December = 11
-    
-    
-    
     return new Date(year, month, 0).getDate();
   }
 
