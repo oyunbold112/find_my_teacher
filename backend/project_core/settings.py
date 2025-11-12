@@ -20,7 +20,10 @@ DEBUG = os.getenv('DEBUG', 'False') == 'True'
 # You can leave this as True for development
 # DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1',]
+ALLOWED_HOSTS = [
+    "findmyteacher-production-daae.up.railway.app"
+]
+
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
@@ -88,9 +91,7 @@ MIDDLEWARE = [
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-    "http://localhost:5173",
-    "http://127.0.0.1:5173"
+    'https://find-my-teacher-beryl.vercel.app/',
 ]
 
 
