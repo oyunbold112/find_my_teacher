@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import login_banner from "../assets/Frame 2.svg";
 import { useAuth } from "../contexts/AuthContext";
 
@@ -59,6 +60,7 @@ function LoginPage() {
                 Send
             </button>
         </form>
+        <Link to="/register" className="register-link" >don't have an account? Sign up</Link>
       </div>
     </div>
   );

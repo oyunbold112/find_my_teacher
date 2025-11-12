@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import login_banner from "../assets/Frame 2.svg";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import "../styles/register.css";
 import { API_URL } from "../contexts/AuthContext";
 
