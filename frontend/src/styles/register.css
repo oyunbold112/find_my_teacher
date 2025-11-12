@@ -1,0 +1,156 @@
+
+.register-page-container {
+  display: flex;
+  width: 100vw;
+  height: 1259px;
+  padding: 150px 192px 149px 191px;
+  justify-content: center;
+  align-items: center;
+  background: #ced7ff;
+  position: relative;
+}
+
+.register-banner-container {
+  width: 80vw;
+  height: 910px;
+  flex-shrink: 0;
+  border-radius: 30px;
+  background: #fff;
+  overflow: hidden;
+}
+
+.register-container {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 934px;
+  height: 559px;
+  flex-shrink: 0;
+  border-radius: 20px;
+  border: 0 solid #000;
+  background: #fff;
+  box-shadow: 1px 1px 30px 2px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(2px);
+}
+
+.register-container .title {
+  display: flex;
+  align-items: center;
+  margin-top: 43px;
+  gap: 3px;
+  margin-bottom: 30px;
+}
+
+.register-container .register-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.register-button {
+  border-radius: 62px;
+  background: #ff7426;
+  width: 610px;
+  height: 73.015px;
+  flex-shrink: 0;
+  border: none;
+  color: #fff;
+  font-family: Poppins;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 144.5%; /* 28.9px */
+  letter-spacing: 0.4px;
+}
+
+.register-form-container .container {
+  width: 610px;
+  height: 80px;
+  flex-shrink: 0;
+  color: #acacac;
+  font-family: Poppins;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 144.5%; /* 28.9px */
+  letter-spacing: 0.4px;
+  border-radius: 62px;
+  background: #eef1ff;
+  border: none;
+  display: flex;
+}
+
+.register-form-container input {
+  margin-left: 40px;
+  color: #acacac;
+  font-family: Poppins;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 144.5%; /* 28.9px */
+  letter-spacing: 0.4px;
+  background: #eef1ff;
+  width: 530px;
+  outline: none;
+  border: none;
+}
+
+.register-form-container .email-container {
+  margin-bottom: 13px;
+}
+
+.register-form-container .username-container {
+  margin-bottom: 13px;
+}
+
+.register-form-container .phoneaddress-container {
+  margin-bottom: 36px;
+}
+@media (max-width: 1500px) {
+  .register-banner-container {
+    width: 90vw;
+    height: 70vw;
+  }
+  .register-container {
+    width: 70vw;
+    height: 60vw;
+  }
+  .register-container .title {
+    margin-top: 4vw;
+    margin-bottom: 3vw;
+  }
+  .register-container .title h1 {
+    font-size: 3.5vw;
+  }
+  .register-container .title svg {
+    width: 10vw;
+  }
+  .register-form-container {
+    width: 60vw;
+  }
+  .register-form-container .container {
+    width: 60vw;
+    height: 7vw;
+  }
+  .register-form-container input {
+    width: 50vw;
+    margin-left: 3vw;
+    font-size: 2vw;
+  }
+  .register-form-container .phoneaddress-container {
+    margin-bottom: 5.5vw;
+  }
+
+  .register-button {
+    width: 60vw;
+    height: 8.5vw;
+  }
+}
+
+@media (max-width: 768px) {
+  .register-page-container {
+    height: 180vw;
+    padding: 0;
+  }
+}

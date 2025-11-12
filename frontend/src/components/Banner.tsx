@@ -1,0 +1,56 @@
+import React from "react";
+import banner_objects from '../assets/OBJECTS.png';
+import clock_image from '../assets/clock.svg';
+// import banner_bg_png from '../assets/Group 360 (1).png';
+import teachers from '../assets/teachers.svg';
+const Banner: React.FC = () => {
+  return (
+    <div className="banner-container">
+      
+      {/* <img src={banner_bg_png} alt="" className="banner-bg"/> */}
+      <div className="left">
+        <h1>
+          Where is <br />
+          my <span>Teacher</span>
+        </h1>
+        <p>
+          бол сурагчдад багш нарын нэр, цагийн хуваарь, заадаг
+          хичээлийг харах боломж олгодог онлайн платформ юм. Та
+          өөрт таарсан багшийг сонгож,
+          хүссэн цагтаа хичээлээ захиалж болно.
+        </p>
+        <div className="search-container">
+          {/* <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+          >
+            <g clip-path="url(#clip0_1008_35)">
+              <path
+                d="M17.6125 15.4923C18.7935 13.8795 19.4999 11.8985 19.4999 9.75096C19.4999 4.375 15.1259 0.000976562 9.74993 0.000976562C4.37398 0.000976562 0 4.375 0 9.75096C0 15.1269 4.37403 19.5009 9.74998 19.5009C11.8975 19.5009 13.8787 18.7944 15.4915 17.6134L21.8789 24.0008L24 21.8798C24 21.8797 17.6125 15.4923 17.6125 15.4923ZM9.74998 16.5009C6.02781 16.5009 3.00001 13.4731 3.00001 9.75096C3.00001 6.02879 6.02781 3.00099 9.74998 3.00099C13.4721 3.00099 16.4999 6.02879 16.4999 9.75096C16.4999 13.4731 13.4721 16.5009 9.74998 16.5009Z"
+                fill="#0F335E"
+              />
+            </g>
+            <defs>
+              <clipPath id="clip0_1008_35">
+                <rect width="24" height="24" fill="white" />
+              </clipPath>
+            </defs>
+          </svg> */}
+          <p>Search for a lessons...</p>
+          <button id="search-button">
+            Continue
+          </button>
+        </div>
+      </div>
+      <div className="right">
+        <img src={teachers} className="teachers-image" alt="" />
+        <img src={clock_image} className="clock-image" alt="" />
+      </div>
+    </div>
+  );
+};
+
+export default Banner;

@@ -1,0 +1,56 @@
+@font-face {
+  font-family: Inter;
+  src: url(../fonts/Inter_24pt-Regular.ttf);
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 47%;
+  font-family: Inter;
+  margin-bottom: 60px;
+}
+
+.avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 16px;
+}
+
+.info {
+  flex: 1;
+  margin-right: 16px;
+  color: #4d2c5e;
+}
+
+.info p {
+  overflow: hidden;
+}
+
+.instructor {
+  font-weight: bold;
+  color: #4d2c5e;
+}
+
+
+.button {
+  background-color: #724095;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 16px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #6b21a8;
+}
