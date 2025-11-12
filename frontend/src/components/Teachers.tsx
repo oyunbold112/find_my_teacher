@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import teacher_container_bg from "../assets/Group 361.svg";
 import exampleteacher from "../assets/teacherppp.svg";
-const teachers_url = "http://127.0.0.1:8000/api/teachers/";
+import { API_URL } from "../contexts/AuthContext";
+const teachers_url = `${API_URL}/teachers/`;
 
 // Define an interface for the teacher data structure
 interface TeacherData {

@@ -3,6 +3,7 @@ import login_banner from "../assets/Frame 2.svg";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "../styles/register.css";
+import { API_URL } from "../contexts/AuthContext";
 
 function RegisterPage() {
   const navigate = useNavigate()
@@ -12,7 +13,7 @@ function RegisterPage() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try{
-      await axios.post('/api/teachers/', {
+      await axios.post(`${API_URL}/teachers`, {
         username,
         email,
         password

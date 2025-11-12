@@ -3,6 +3,7 @@ import styles from '../styles/CourseCard.module.css';
 import { ReservationContext } from '../contexts/reservationContext';
 import type { ReservationContextType } from '../components/ReservationPage';
 import axios from 'axios';
+import { API_URL } from '../contexts/AuthContext';
 
 export interface CourseCardProps {
   description: string;
@@ -29,7 +30,7 @@ const CourseCard: React.FC<CourseCardProps> = ({ description, id, lesson_duratio
       reservation_time: reservation_date
     }
     try {
-      const response = axios.post(`http://127.0.0.1:8000/api/lessons/reservations/`, data ,{
+      const response = axios.post(`${API_URL}/lessons/reservations/`, data ,{
         headers: {
           Authorization: `Bearer ${JSON.parse(localStorage.getItem('authTokens') || '{}').access}`
         }

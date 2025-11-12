@@ -21,18 +21,22 @@ export function useLessonSearch(filters: Filters) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  const API_URL = "https://findmyteacher-production-daae.up.railway.app/api";
+
   useEffect(() => {
     const fetchLessons = async () => {
       setLoading(true);
       setError(null);
       const hasFilters =
         filters &&
-        (filters.lesson_type != "" || filters.description != "" || filters.lesson_duration != null);
+        (filters.lesson_type != "" ||
+          filters.description != "" ||
+          filters.lesson_duration != null);
       if (hasFilters) {
         try {
           console.log(filters.lesson_duration);
           const response = await axios.get(
-            "http://127.0.0.1:8000/api/lessons/lessons/",
+            `${API_URL}/lessons/lessons/`,
             {
               headers: {
                 Authorization: `Bearer ${

@@ -3,6 +3,7 @@ import CourseCard from "./CourseCard";
 import axios from "axios";
 import { useLessonSearch } from "../hooks/useLessonSearch";
 import type { CourseCardProps } from "./CourseCard";
+import { API_URL } from "../contexts/AuthContext";
 import {
   ReservationContext,
 } from "../contexts/reservationContext";
@@ -57,7 +58,7 @@ const ReservationPage = () => {
     async function fetchLessonTypes() {
       try {
         const response = await axios.get(
-          "http://localhost:8000/api/lessons/lessontypes",
+          `${API_URL}/lessons/lessontypes/`,
           {
             headers: {
               Authorization: `Bearer ${
@@ -74,7 +75,7 @@ const ReservationPage = () => {
     async function fetchMyLessons() {
       try {
         const response = await axios.get(
-          "http://localhost:8000/api/lessons/reservations/",
+          `${API_URL}/lessons/reservations/`,
           {
             headers: {
               Authorization: `Bearer ${

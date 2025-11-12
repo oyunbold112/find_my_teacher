@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useAuth } from "../contexts/AuthContext";
+import { API_URL } from "../contexts/AuthContext";
 
-const lessons_url = "http://127.0.0.1:8000/api/lessons/lessons";
+
+const lessons_url = `${API_URL}/lessons/lessons`;
 
 interface LessonData {
   title: string;

@@ -3,6 +3,7 @@ import banner_image from "../assets/study_field_banner.png";
 import axios from "axios";
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { API_URL } from "../contexts/AuthContext";
 
 interface Field {
   name: string;
@@ -24,7 +25,7 @@ const StudyField: React.FC = () => {
       if (0 == 0) {
         try {
           const response = await axios.get(
-            "http://127.0.0.1:8000/api/lessons/lessontypes",
+            `${API_URL}/lessons/lessontypes/`,
             {
               headers: {
                 Authorization: `Bearer ${
