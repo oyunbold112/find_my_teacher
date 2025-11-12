@@ -1,4 +1,3 @@
-import Menu from "./Menu";
 import Proteachers from "./Proteachers";
 import StudyField from "./StudyField";
 import StudentsReview from "./StudentsReview";

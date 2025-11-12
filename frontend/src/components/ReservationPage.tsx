@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import CourseCard from "./CourseCard";
 import axios from "axios";
 import { useLessonSearch } from "../hooks/useLessonSearch";
+import type { CourseCardProps } from "./CourseCard";
 import {
   ReservationContext,
-  ReservationProvider,
 } from "../contexts/reservationContext";
 
 interface lessonTypes {
@@ -36,7 +36,7 @@ export interface ReservationContextType {
 }
 
 const ReservationPage = () => {
-  const [courses, setCourses] = useState([]);
+  const [courses, setCourses] = useState<CourseCardProps[]>([]);
   const [lessontypes, setLessontypes] = useState<lessonTypes[]>([]);
   const [inputLessonType, setType] = useState<string>("");
   const [inputDuration, setDuration] = useState<number | string>("");
@@ -62,7 +62,7 @@ const ReservationPage = () => {
           {
             headers: {
               Authorization: `Bearer ${
-                JSON.parse(localStorage.getItem("authTokens"))?.access
+                JSON.parse(localStorage.getItem("authTokens") ?? "{}")?.access
               }`,
             },
           }
@@ -80,7 +80,7 @@ const ReservationPage = () => {
           {
             headers: {
               Authorization: `Bearer ${
-                JSON.parse(localStorage.getItem("authTokens"))?.access
+                JSON.parse(localStorage.getItem("authTokens") ?? "{}")?.access
               }`,
             }
           })
@@ -101,7 +101,6 @@ const ReservationPage = () => {
   }, []);
   useEffect(() => {
     setCourses(lessons || []);
-    
   }, [lessons]);
 
   const handleSearch = () => {
@@ -119,7 +118,7 @@ const ReservationPage = () => {
       setType(e.target.value);
     } else {
       if (e.target.value === "") {
-        setDuration(null);
+        setDuration("");
       }
       else {
       setDuration(parseInt(e.target.value));
@@ -344,7 +343,7 @@ const ReservationPage = () => {
                 );
               })
               .reverse()}
-            {[...Array(daysInMonth)].map((x, i) => (
+            {[...Array(daysInMonth)].map((_, i) => (
               <div
                 onClick={(event) => handleDayClick(event, i + 1)}
                 className="day-container"

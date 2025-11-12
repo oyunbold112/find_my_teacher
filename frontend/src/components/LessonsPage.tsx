@@ -19,11 +19,9 @@ const LessonsPage: React.FC = () => {
   const [lessons, setLessons] = useState<LessonData[]>([]);
   const [loading, setLoading] = useState(true);
   const { authTokens } = useAuth();
-  console.log(authTokens)
   useEffect(() => {
     const fetchLessons = async () => {
       try {
-        console.log(authTokens?.key)
         const response = await axios.get(lessons_url, {
           headers: {
             "Content-Type": "application/json",
@@ -32,7 +30,6 @@ const LessonsPage: React.FC = () => {
         });
         setLessons(response.data);
       } catch (error) {
-        console.error("Хичээлүүдийг татахад алдаа гарлаа!", error);
       } finally {
         setLoading(false);
       }

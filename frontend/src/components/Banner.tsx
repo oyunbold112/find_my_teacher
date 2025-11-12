@@ -1,5 +1,4 @@
 import React from "react";
-import banner_objects from '../assets/OBJECTS.png';
 import clock_image from '../assets/clock.svg';
 // import banner_bg_png from '../assets/Group 360 (1).png';
 import teachers from '../assets/teachers.svg';

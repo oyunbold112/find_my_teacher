@@ -4,7 +4,7 @@ import { ReservationContext } from '../contexts/reservationContext';
 import type { ReservationContextType } from '../components/ReservationPage';
 import axios from 'axios';
 
-interface CourseCardProps {
+export interface CourseCardProps {
   description: string;
   id: number;
   teacher: number;
@@ -20,7 +20,7 @@ interface CourseCardProps {
   date: string;
 }
 
-const CourseCard: React.FC<CourseCardProps> = ({ description, id, teacher, lesson_duration, teacher_email, teacher_profile, title, date}) => {
+const CourseCard: React.FC<CourseCardProps> = ({ description, id, lesson_duration,  teacher_profile, title, }) => {
   const {reservation_date} = React.useContext(ReservationContext) as ReservationContextType;
   const handleSubmit = () => {
     const data = { 
@@ -34,6 +34,7 @@ const CourseCard: React.FC<CourseCardProps> = ({ description, id, teacher, lesso
           Authorization: `Bearer ${JSON.parse(localStorage.getItem('authTokens') || '{}').access}`
         }
       })
+      response.then(() => {});
     } catch (error) {
       
     }

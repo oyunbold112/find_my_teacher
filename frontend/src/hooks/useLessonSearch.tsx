@@ -13,7 +13,7 @@ interface Lesson {
 interface Filters {
   lesson_type?: string;
   description?: string;
-  lesson_duration?: number | null;
+  lesson_duration?: number | string;
 }
 
 export function useLessonSearch(filters: Filters) {

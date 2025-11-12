@@ -1,4 +1,3 @@
-import React from "react";
 import login_banner from "../assets/Frame 2.svg";
 import { useAuth } from "../contexts/AuthContext";
 

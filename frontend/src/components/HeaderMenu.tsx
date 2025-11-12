@@ -1,7 +1,7 @@
 import React from "react";
 import profile_icon from "../assets/profile-icon.svg";
 import { Link, useLocation } from "react-router-dom";
-import { useState } from "react";
+
 
 const Header: React.FC = () => {
   const location = useLocation();
