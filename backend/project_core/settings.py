@@ -16,12 +16,13 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # print(SECRET_KEY) # Remove this line in production
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv('DEBUG', 'False') == 'True'
+DEBUG = os.getenv('DEBUG', 'False') == 'False'
 # You can leave this as True for development
 # DEBUG = True
 
 ALLOWED_HOSTS = [
-    "findmyteacher-production-daae.up.railway.app"
+    "findmyteacher-production-daae.up.railway.app",
+    '127.0.0.1',
 ]
 
 
@@ -91,7 +92,7 @@ MIDDLEWARE = [
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 CORS_ALLOWED_ORIGINS = [
-    'https://find-my-teacher-beryl.vercel.app/',
+    'https://find-my-teacher-beryl.vercel.app',
 ]
 
 
@@ -203,3 +204,8 @@ REST_AUTH = {
     "USER_DETAILS_SERIALIZER": "users.serializers.TeacherSerializer",
     "TOKEN_MODEL": None, # Add this line
 }
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://find-my-teacher-beryl.vercel.app',
+    'https://findmyteacher-production-daae.up.railway.app',
+]
