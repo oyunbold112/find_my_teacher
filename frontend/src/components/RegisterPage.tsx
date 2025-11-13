@@ -13,7 +13,7 @@ function RegisterPage() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try{
-      await axios.post(`${API_URL}/teachers`, {
+      await axios.post(`${API_URL}/teachers/`, {
         username,
         email,
         password
