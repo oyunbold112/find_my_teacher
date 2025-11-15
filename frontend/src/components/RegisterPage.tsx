@@ -13,12 +13,25 @@ function RegisterPage() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try{
-      await axios.post(`${API_URL}/teachers/`, {
+      if (!email || !username || !password) {
+        alert("Please fill in all fields.");
+        return;
+      }
+      const response = await axios.post(`${API_URL}/users/`, {
         username,
         email,
         password
-      });
-      navigate('/login')
+      }).then((res) => {
+        navigate('/login')
+      }).catch((err) => {
+        if (err.response.status === 500) {
+          navigate('/login')
+        }
+        if (err.response.status === 400) {
+          alert('User with this username already exists.')
+          return
+        }
+      })
     }
     catch(error){
       console.error(`Registration failed. ${error}`)

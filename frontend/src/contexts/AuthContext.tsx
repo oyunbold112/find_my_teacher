@@ -9,7 +9,8 @@ import {
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 // ... (Энд Context-ийн бүх код орно)
-export const API_URL = "https://findmyteacher-production-daae.up.railway.app/api";
+export const API_URL =
+  "https://findmyteacher-production-daae.up.railway.app/api";
 interface AuthTokens {
   access: string;
   refresh: string;
@@ -38,38 +39,46 @@ interface AuthProviderProps {
   children: ReactNode;
 }
 export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
-    const navigate = useNavigate();
-    const [authTokens, setAuthTokens] = useState<AuthTokens | null>(() =>
+  const navigate = useNavigate();
+  const [authTokens, setAuthTokens] = useState<AuthTokens | null>(() =>
     localStorage.getItem("authTokens")
       ? JSON.parse(localStorage.getItem("authTokens")!)
       : null
   );
-  const [user, setUser] = useState<User | null>(() =>
-    localStorage.getItem("authTokens") /* Decode token here or fetch user */
-      ? null
-      : null
-  );
+  const [user, setUser] = useState<User | null>(() => {
+    const token = localStorage.getItem("authTokens");
+    if (!token) return null;
+
+    // Option A: Decode token if it contains user info
+    try {
+      const decoded = JSON.parse(atob(token.split(".")[1])); // assuming JWT
+      return { username: decoded.username, email: decoded.email }; // shape depends on your token
+    } catch (err) {
+      return null;
+    }
+  });
+
   const loginUser = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const target = e.target as typeof e.target & {
       username: { value: string };
       password: { value: string };
     };
-    console.log(e)
+    console.log(e);
     console.log(target);
     try {
       const response = await axios.post(`${API_URL}/auth/login/`, {
         username: target.username.value,
         password: target.password.value,
       });
- 
+
       const data = response.data;
       setAuthTokens(data);
       setUser(data.user); // Assuming login returns user details
       localStorage.setItem("authTokens", JSON.stringify(data));
       navigate("/");
     } catch (error) {
-        console.error(error);
+      console.error(error);
       alert("Нэвтрэхэд алдаа гарлаа!");
     }
   };
@@ -86,30 +95,30 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   };
   // TODO: Add token refresh logic inside a useEffect
   useEffect(() => {
-  const refreshToken = async () => {
-    if (authTokens?.refresh) {
-      try {
-        const response = await axios.post(`${API_URL}/auth/token/refresh/`, {
-          refresh: authTokens.refresh,
-        });
-        const newTokens = {
-          access: response.data.access,
-          refresh: authTokens.refresh, // reuse the existing refresh token
-        };
-        setAuthTokens(newTokens);
-        localStorage.setItem("authTokens", JSON.stringify(newTokens));
-      } catch (error) {
-        logoutUser(); // if refresh fails, log out
+    const refreshToken = async () => {
+      if (authTokens?.refresh) {
+        try {
+          const response = await axios.post(`${API_URL}/auth/token/refresh/`, {
+            refresh: authTokens.refresh,
+          });
+          const newTokens = {
+            access: response.data.access,
+            refresh: authTokens.refresh, // reuse the existing refresh token
+          };
+          setAuthTokens(newTokens);
+          localStorage.setItem("authTokens", JSON.stringify(newTokens));
+        } catch (error) {
+          logoutUser(); // if refresh fails, log out
+        }
       }
-    }
-  };
+    };
 
-  const interval = setInterval(() => {
-    refreshToken();
-  }, 1000 * 60 * 4); // refresh every 4 minutes
+    const interval = setInterval(() => {
+      refreshToken();
+    }, 1000 * 60 * 4); // refresh every 4 minutes
 
-  return () => clearInterval(interval);
-}, [authTokens]);
+    return () => clearInterval(interval);
+  }, [authTokens]);
 
   return (
     <AuthContext.Provider value={contextData}>{children}</AuthContext.Provider>

@@ -5,10 +5,10 @@ import { Link, useLocation } from "react-router-dom";
 
 const Header: React.FC = () => {
   const location = useLocation();
-  const isCoursePage = location.pathname === "/reservation"; // adjust to your route
+  const isCoursePage = location.pathname === "/reservation"; // Check if the current page is the course page
   return (
     <div className="header-menu-container" style={{ backgroundColor: isCoursePage ? '#4d2c5e' : '#fdf8ee' }}>
-      <h1 className="logo">
+      <h1 className="logo" style={{ color: isCoursePage ? '#fff' : '#4d2c5e' }}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="30"
@@ -31,20 +31,20 @@ const Header: React.FC = () => {
         </svg>
         Tutor
       </h1>
-      <div className="nav">
-        <Link to="/">Home</Link>
-        <Link style={{ textDecoration: "none" }} to="/teachers">
+      <div className="nav" >
+        <Link to="/" style={{ color: isCoursePage ? '#fff' : '#4d2c5e' }}>Home</Link>
+        <Link style={{ color: isCoursePage ? '#fff' : '#4d2c5e' }} to="/teachers">
           Teachers
         </Link>
-        <Link style={{ textDecoration: "none" }} to="/reservation">
+        <Link style={{ color: isCoursePage ? '#fff' : '#4d2c5e' }} to="/reservation">
           Courses
         </Link>
-        <Link style={{ textDecoration: "none" }} to="/contact">
+        <Link style={{ color: isCoursePage ? '#fff' : '#4d2c5e' }} to="/contact">
           Contact Us
         </Link>
       </div>
       <div className="profile-and-signin">
-        <div className="profile">
+        <div className="profile" style={{ border: isCoursePage ? ' 0.2vw solid #fff' : '#4d2c5e'}}>
           <img src={profile_icon} alt="" className="profile-icon" />
         </div>
         <div className="sign-in">

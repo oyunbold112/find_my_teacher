@@ -23,12 +23,14 @@ function App() {
             <Route path="about" element={<AboutPage />} />
             <Route path="teachers" element={<Teachers />} />
             <Route path="login" element={<LoginPage />} />
-            <Route path="/reservation" element={<ReservationProvider><ReservationPage/></ReservationProvider>}/>
+            <Route element={<PrivateRoute />}>
+              <Route path="/reservation" element={<ReservationProvider><ReservationPage/></ReservationProvider>}/>
+            </Route>
             <Route path="register" element={<RegisterPage />} />
             {/* protected page */}
-            {/* <Route element={<PrivateRoute />}> */}
+            <Route element={<PrivateRoute />}>
               <Route path="lessons" element={<LessonsPage />} />
-            {/* </Route> */}
+            </Route>
           </Route>
           
         </Routes>
