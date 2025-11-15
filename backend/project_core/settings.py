@@ -93,6 +93,7 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 CORS_ALLOWED_ORIGINS = [
     'https://find-my-teacher-beryl.vercel.app',
+    'http://localhost:5173',
 ]
 
 
