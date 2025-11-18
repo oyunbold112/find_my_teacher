@@ -12,7 +12,7 @@ class Role(models.Model):
 
 class Profile(models.Model):
     user = models.OneToOneField(CustomerUser, on_delete=models.CASCADE)
-    user_type = models.ForeignKey(Role, on_delete=models.SET_NULL, null=True, blank=True)
+    user_type = models.ForeignKey(Role, on_delete=models.SET_NULL, null=True, blank=True, default="student")
     email = models.EmailField(unique=True, default='empty')
     first_name = models.CharField(max_length=16, default='empty')
     last_name = models.CharField(max_length=16, default='empty')

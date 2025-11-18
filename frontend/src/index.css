@@ -652,15 +652,14 @@
   justify-content: space-between;
   align-items: center;
 }
-.study-field-component-container .search-container input {
-  border: none;
-  color: #acacac;
-  font-family: Poppins;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 144.5%; /* 28.9px */
-  letter-spacing: 0.4px;
+
+.study-field-component-container select {
+  margin-left: 1vw;
+  width: 60%;
+  height: 60%;
+  font-size: medium;
+  font-family: Roboto;
+
 }
 
 .study-field-component-container .field-search-btn {
@@ -671,7 +670,7 @@
   flex-shrink: 0;
   border: none;
   color: #fff;
-  font-family: Poppins;
+  font-family: Roboto;
   font-size: 20px;
   font-style: normal;
   font-weight: 500;

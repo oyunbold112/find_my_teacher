@@ -54,7 +54,7 @@ const StudyField: React.FC = () => {
           Таны <span>суралцахыг</span> хүссэн салбар
         </h1>
         <div className="search-container">
-          <select onChange={handleChange} name="Field" id="select-field">
+          <select title="" onChange={handleChange} name="Field" id="select-field">
             <option value="default">Таны суралцах салбар</option>
             {fields.map((f) => (
               <option key={f.display_name} value={f.display_name}>

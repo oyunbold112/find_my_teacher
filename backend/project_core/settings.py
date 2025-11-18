@@ -40,14 +40,14 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'rest_framework',
     'corsheaders',
-    # 'rest_framework.authtoken', # Remove this line
+    # 'rest_framework.authtoken'
     'dj_rest_auth',
     'dj_rest_auth.registration',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
-    'users',
+    'users.apps.UsersConfig',
     'classroom',
     # Added
     'rest_framework_simplejwt',

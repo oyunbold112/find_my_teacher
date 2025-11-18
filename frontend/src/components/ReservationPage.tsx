@@ -7,12 +7,10 @@ import { API_URL } from "../contexts/AuthContext";
 import {
   ReservationContext,
 } from "../contexts/reservationContext";
-
 interface lessonTypes {
   name: string;
   display_name: string;
 }
-
 interface Mylessons {
   duration: number;
   id: number;
@@ -140,13 +138,10 @@ const ReservationPage = () => {
     // month is 0-indexed: January = 0, December = 11
     return new Date(year, month, 0).getDate();
   }
-
   const daysInMonth = getDaysInMonth(
     calendarDate.getFullYear(),
     calendarDate.getMonth() + 1
   );
-  
-
   function handleTimeClick(e: React.MouseEvent<HTMLElement>) {
     const target = e.target as HTMLElement;
     const timeString = target.innerHTML.trim(); // "4:30PM"
@@ -199,14 +194,7 @@ const ReservationPage = () => {
       );
     }
   }
-  // function booklessoncalendar() {
-  //   const currentDate = new Date();
-  //   const daysInMonth = getDaysInMonth(
-  //     new Date().getFullYear(),
-  //     new Date().getMonth()
-  //   );
-  // }
-  
+
   return (
     <div className="reservation-page-container">
       <div className="reservation-form-container">
@@ -368,42 +356,7 @@ const ReservationPage = () => {
       <div className="reservation-mylessons-container">
         <h1 className="header">Миний хичээлүүд</h1>
         <div className="lessons-container">
-          {/* <div className="lesson">
-            <h1>Кодын хичээл – 1р хэсэг</h1>
-            <p>
-              2025/11/15, 14:00 цагаас , Хангайхүү багшийн 40 минутын хичээл
-            </p>
-          </div>
-          <div className="lesson">
-            <h1>Кодын хичээл – 1р хэсэг</h1>
-            <p>
-              2025/11/15, 14:00 цагаас , Хангайхүү багшийн 40 минутын хичээл
-            </p>
-          </div>
-          <div className="lesson">
-            <h1>Кодын хичээл – 1р хэсэг</h1>
-            <p>
-              2025/11/15, 14:00 цагаас , Хангайхүү багшийн 40 минутын хичээл
-            </p>
-          </div>
-          <div className="lesson">
-            <h1>Кодын хичээл – 1р хэсэг</h1>
-            <p>
-              2025/11/15, 14:00 цагаас , Хангайхүү багшийн 40 минутын хичээл
-            </p>
-          </div>
-          <div className="lesson">
-            <h1>Кодын хичээл – 1р хэсэг</h1>
-            <p>
-              2025/11/15, 14:00 цагаас , Хангайхүү багшийн 40 минутын хичээл
-            </p>
-          </div>
-          <div className="lesson">
-            <h1>Кодын хичээл – 1р хэсэг</h1>
-            <p>
-              2025/11/15, 14:00 цагаас , Хангайхүү багшийн 40 минутын хичээл
-            </p>
-          </div>
+          {/*
           <div className="lesson">
             <h1>Кодын хичээл – 1р хэсэг</h1>
             <p>
