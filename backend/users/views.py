@@ -6,6 +6,12 @@ from .serializers import TeacherSerializer
 from .permissions import IsSelfOrReadOnly
 from .models import CustomerUser
 
+from django.views.decorators.csrf import csrf_exempt
+
+@csrf_exempt
+def my_view(request):
+    ...
+
 class UserViewSet(viewsets.ModelViewSet):
     queryset = CustomerUser.objects.all()
     serializer_class = TeacherSerializer

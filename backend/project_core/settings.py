@@ -209,4 +209,6 @@ REST_AUTH = {
 CSRF_TRUSTED_ORIGINS = [
     'https://find-my-teacher-beryl.vercel.app',
     'https://findmyteacher-production-daae.up.railway.app',
+    'http://127.0.0.1:8000',
+    'http://localhost:8000'
 ]

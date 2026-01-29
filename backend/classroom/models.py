@@ -14,7 +14,8 @@ class Role(models.Model):
 class Profile(models.Model):
     user = models.OneToOneField(CustomerUser, on_delete=models.CASCADE)
     user_type = models.ForeignKey(Role, on_delete=models.SET_NULL, null=True, blank=True, default="student")
-    email = models.EmailField(unique=True, default=lambda: f'empty{random.randint(1, 1000)}@gmail.com')
+    email = models.EmailField(unique=True)
+    #  default=lambda: f'empty{random.randint(1, 1000)}@gmail.com'
     first_name = models.CharField(max_length=16, default='empty')
     last_name = models.CharField(max_length=16, default='empty')
     profile_picture = models.ImageField(upload_to='profile_pic', height_field='profile_height', width_field='profile_width', default='profile_pic/01.jpg')
