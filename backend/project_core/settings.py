@@ -21,8 +21,8 @@ DEBUG = os.getenv('DEBUG', 'False') == 'False'
 # DEBUG = True
 
 ALLOWED_HOSTS = [
-    "findmyteacher-production-daae.up.railway.app",
     '127.0.0.1',
+    'findmyteacher-production-b7aa.up.railway.app',
 ]
 
 
@@ -209,6 +209,7 @@ REST_AUTH = {
 CSRF_TRUSTED_ORIGINS = [
     'https://find-my-teacher-beryl.vercel.app',
     'https://findmyteacher-production-daae.up.railway.app',
+    'https://findmyteacher-production-b7aa.up.railway.app',
     'http://127.0.0.1:8000',
     'http://localhost:8000'
 ]
