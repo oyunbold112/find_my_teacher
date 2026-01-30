@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { API_URL } from "../contexts/AuthContext";
 import axios from "axios";
 
 interface Lesson {
@@ -20,9 +21,7 @@ export function useLessonSearch(filters: Filters) {
   const [lessons, setLessons] = useState<Lesson[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-
-  const API_URL = "https://findmyteacher-production-daae.up.railway.app/api";
-
+  
   useEffect(() => {
     const fetchLessons = async () => {
       setLoading(true);
