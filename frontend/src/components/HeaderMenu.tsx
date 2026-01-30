@@ -1,12 +1,23 @@
 import React from "react";
 import profile_icon from "../assets/profile-icon.svg";
 import { Link, useLocation } from "react-router-dom";
+import { useAuth } from "../contexts/AuthContext";
 const Header: React.FC = () => {
   const location = useLocation();
   const isCoursePage = location.pathname === "/reservation"; // Check if the current page is the course page
+  const { user } = useAuth();
   return (
-    <div className="header-menu-container" style={{ backgroundColor: isCoursePage ? '#4d2c5e' : '#fdf8ee' }}>
-      <h1 className="logo" style={{ color: isCoursePage ? '#fff' : '#4d2c5e' }}>
+    <div
+      className="header-menu-container"
+      style={{ backgroundColor: isCoursePage ? "#4d2c5e" : "#fdf8ee" }}
+    >
+      <h1
+        className="logo"
+        style={{
+          color: isCoursePage ? "#fff" : "#4d2c5e",
+          
+        }}
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="30"
@@ -29,23 +40,43 @@ const Header: React.FC = () => {
         </svg>
         Tutor
       </h1>
-      <div className="nav" >
-        <Link to="/" style={{ color: isCoursePage ? '#fff' : '#4d2c5e' }}>Home</Link>
-        <Link style={{ color: isCoursePage ? '#fff' : '#4d2c5e' }} to="/teachers">
+      <div className="nav" style={{marginLeft: user ? "10vw" : ""}}>
+        <Link to="/" style={{ color: isCoursePage ? "#fff" : "#1d1d1d" }}>
+          Home
+        </Link>
+        <Link
+          style={{ color: isCoursePage ? "#fff" : "#1d1d1d" }}
+          to="/teachers"
+        >
           Teachers
         </Link>
-        <Link style={{ color: isCoursePage ? '#fff' : '#4d2c5e' }} to="/reservation">
+        <Link
+          style={{ color: isCoursePage ? "#fff" : "#1d1d1d" }}
+          to="/reservation"
+        >
           Courses
         </Link>
-        <Link style={{ color: isCoursePage ? '#fff' : '#4d2c5e' }} to="/contact">
+        <Link
+          style={{ color: isCoursePage ? "#fff" : "#1d1d1d" }}
+          to="/contact"
+        >
           Contact Us
         </Link>
       </div>
-      <div className="profile-and-signin">
-        <div className="profile" style={{ border: isCoursePage ? ' 0.2vw solid #fff' : '#4d2c5e'}}>
+      <div
+        className="profile-and-signin"
+        style={{
+          width: user ? "2vw" : "16.5vw",
+          justifyContent: user ? "center" : "space-between",
+        }}
+      >
+        <div
+          className="profile"
+          style={{ border: isCoursePage ? " 0.2vw solid #fff" : "#4d2c5e" }}
+        >
           <img src={profile_icon} alt="" className="profile-icon" />
         </div>
-        <div className="sign-in">
+        <div className="sign-in" style={{ display: user ? "none" : "" }}>
           <Link className="signin-link" to="/login">
             Sign in
           </Link>

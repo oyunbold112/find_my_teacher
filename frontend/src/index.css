@@ -45,8 +45,10 @@
   display: flex;
   align-items: center;
   background: no-repeat url("assets/background-banner.svg");
+  background-size: 100% 100%;
   background-color: #fdf8ee;
 }
+
 .banner-container .left {
   display: flex;
   flex-direction: column;
@@ -155,30 +157,38 @@
 }
 
 @media (max-width: 568px) {
+  .banner-container {
+    height: 500px;
+    padding-bottom: 50px;
+    align-items: baseline;
+  }
   .banner-container .left {
     width: 100%;
+    background: no-repeat url("assets/background-banner.svg");
+    background-size: 100% 100%;
   }
   .banner-container .right {
     display: none;
   }
   .banner-container .left h1 {
-    font-size: 7.5vw;
+    font-size: 10vw;
   }
   .banner-container .left h1 span {
-    font-size: 7.5vw;
+    font-size: 10vw;
   }
   .banner-container .left p {
-    font-size: 3vw;
+    font-size: 4vw;
   }
 }
+
 
 .header-menu-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding-top: 30px;
-  padding-bottom: 10px;
+  padding-top: 40px;
+  padding-bottom: 40px;
   flex-shrink: 0;
   background-color: #fdf8ee;
 }
@@ -186,7 +196,7 @@
 .header-menu-container .logo {
   color: #1d1d1d;
   font-family: Roboto;
-  font-size: 2vw;
+  font-size: 35px;
   font-style: normal;
   font-weight: 700;
   line-height: 135%; /* 32.4px */
@@ -194,9 +204,14 @@
   justify-content: center;
   align-items: center;
   gap: 7px;
-  margin-left: 10vw;
+  margin-left: 6.5vw;
   margin-right: 30vw;
 }
+@media (max-width: 500px) {
+  .header-menu-container .logo {
+    font-size: 25px;
+  }}
+
 .header-menu-container .logo svg {
   width: 3.3vw;
 }
@@ -217,7 +232,7 @@
 
 .header-menu-container .nav a {
   text-transform: capitalize;
-  color: #1d1d1d;
+  color: #333;
   font-family: Roboto;
   font-size: 1vw;
   font-style: normal;
@@ -233,6 +248,9 @@
   margin-right: 6vw;
   width: 16.5vw;
 }
+
+
+
 
 .header-menu-container .sign-in {
   width: 10vw;
@@ -272,6 +290,35 @@
 .header-menu-container .profile-and-signin .profile img {
   width: 2.5vw;
   height: 2.5vw;
+}
+
+@media (max-width: 1000px ) and (min-width: 569px) {
+  .header-menu-container .nav {
+    width: 30vw;
+  }
+  .header-menu-container .nav a {
+    font-size: 1.5vw;
+  }
+  .header-menu-container .profile-and-signin {
+    margin-right: 3vw;
+  }
+}
+
+@media (max-width: 568px) {
+  .header-menu-container {
+    padding-top: 2vw;
+    padding-bottom: 2vw;
+  }
+  .header-menu-container .logo {
+    margin-right: 10vw;
+    font-size: 5vw;
+  }
+  .header-menu-container .nav {
+    width: 35vw;
+  }
+  .header-menu-container .nav a {
+    font-size: 2vw;
+  }
 }
 
 /* teachers component */
@@ -1053,6 +1100,11 @@
   background: #ced7ff;
   position: relative;
 }
+@media (max-width: 568px) {
+  .login-page-container {
+    height: 500px;
+  }
+}
 
 .login-banner-container {
   width: 80vw;
@@ -1192,7 +1244,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px) and (min-width: 569px) {
   .login-page-container {
     height: 180vw;
     padding: 0;
