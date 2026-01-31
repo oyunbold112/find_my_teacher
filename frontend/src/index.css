@@ -5,7 +5,6 @@
 ::-webkit-scrollbar {
   display: none;
 }
-
 @font-face {
   font-family: Roboto;
   src: url(fonts/Roboto-VariableFont_wdth\wght.ttf);
@@ -18,12 +17,10 @@
   font-family: Inter;
   src: url(fonts/Inter_24pt-Regular.ttf);
 }
-
 @font-face {
   font-family: Poppins;
   src: url(fonts/Poppins-Regular.ttf);
 }
-
 @font-face {
   font-family: Jost;
   src: url(fonts/Jost-VariableFont_wght.ttf);
@@ -48,7 +45,6 @@
   background-size: 100% 100%;
   background-color: #fdf8ee;
 }
-
 .banner-container .left {
   display: flex;
   flex-direction: column;
@@ -155,10 +151,9 @@
     font-size: 2vw;
   }
 }
-
 @media (max-width: 568px) {
   .banner-container {
-    height: 500px;
+    height: 400px;
     padding-top: 50px;
     padding-bottom: 50px;
     align-items: baseline;
@@ -167,18 +162,35 @@
     width: 100%;
     background: no-repeat url("assets/background-banner.svg");
     background-size: 100% 100%;
+    padding-right: 0px;
+    margin-right: 0px;
   }
   .banner-container .right {
     display: none;
   }
   .banner-container .left h1 {
-    font-size: 10vw;
+    font-size: 11vw;
+    width: 100%;
+  }
+  .banner-container .left h1 br {
+    display: none;
   }
   .banner-container .left h1 span {
-    font-size: 10vw;
+    font-size: 10.5vw;
   }
   .banner-container .left p {
     font-size: 4vw;
+  }
+  .left .search-container {
+    height: 15vw;
+    margin-top: 20px;
+  }
+  .left .search-container p {
+    font-size: 3.5vw;
+  }
+  .left #search-button {
+    font-size: 4vw;
+    height: 100%;
   }
 }
 
@@ -311,14 +323,41 @@
     padding-bottom: 2.5vw;
   }
   .header-menu-container .logo {
+    width: 30vw;
     margin-right: 5vw;
-    font-size: 5vw;
+    font-size: 10vw;
+    gap: 2px;
+  }
+  .header-menu-container .logo svg {
+    width: 7vw;
   }
   .header-menu-container .nav {
     width: 40vw;
+    display: none;
   }
   .header-menu-container .nav a {
     font-size: 2.5vw;
+  }
+  .header-menu-container .profile-and-signin {
+    margin-right: 3vw;
+    width: 30vw;
+    justify-content: space-between;
+  }
+  .header-menu-container .profile-and-signin .profile {
+    width: 8vw;
+    height: 8vw;
+    padding: 2vw;
+  }
+  .header-menu-container .profile-and-signin .profile img {
+    width: 5vw;
+    height: 5vw;
+  }
+  .header-menu-container .sign-in {
+    width: 18vw;
+    height: 7vw;
+  }
+  .signin-link {
+    font-size: 3.5vw;
   }
 }
 
@@ -666,18 +705,39 @@
 @media (max-width: 568px) {
   .menu-footer-component-container {
     width: 100%;
+    border-radius: 20px;
     gap: 1vw;
     position: relative;
-    height: 40vw;
+    height: 30vw;
     overflow: scroll;
   }
-  .menu-footer-component-container .div h1{
+  .menu-footer-component-container .div {
+    margin-top: 0px;
     font-size: 5.5vw;
+    height: 90%;
+    gap: 10px;
+  }
+  .menu-footer-component-container .div br {
+    display: none;
+  }
+  .menu-footer-component-container .div h1 {
     margin: 0;
   }
   .menu-footer-component-container .div p {
-    font-size: 4vw;
+    font-size: 3.5vw;
+    height: auto;
+    line-height: normal;
     margin: 0;
+  }
+  .menu-footer-component-container .div img {
+    width: 15vw;
+    height: 15vw;
+    border-radius: 23px;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 1.5vw;
+  }
+  .menu-footer-component-container .div:nth-child(1) {
+    margin-left: 2.5vw;
   }
 }
 .study-field-component-container {
@@ -801,7 +861,7 @@
 }
 @media (max-width: 568px) {
   .study-field-component-container {
-    margin-top: 30vw;
+    margin-top: 40vw;
     padding-left: 0;
     position: relative;
   }
@@ -843,7 +903,6 @@
     margin-right: 10px;
   }
 }
-
 
 .study-field-component-container .left {
   display: flex;
@@ -945,6 +1004,41 @@
 .student-review-component-container .profile img {
   margin-left: 1.5vw;
   width: 4vw;
+}
+
+@media (max-width: 568px) {
+  .student-review-component-container {
+    align-items: center;
+  }
+  .student-review-component-container .header h1 {
+    font-size: 7vw;
+  }
+  .student-review-component-container .header p {
+    font-size: 2.5vw;
+  }
+  .student-review-component-container .three-reviews {
+    overflow: scroll;
+    height: 50vw;
+  }
+  .student-review-component-container .review {
+    width: 70vw;
+    height: 100%;
+    margin-bottom: 0px;
+  }
+  .student-review-component-container .review p {
+    font-size: 4.5vw;
+    line-height: normal;
+    width: 65vw;
+  }
+  .student-review-component-container .review .profile h1 {
+    font-size: 4.5vw;
+  }
+  .student-review-component-container .review .profile p {
+    font-size: 3.5vw;
+  }
+  .student-review-component-container .profile img {
+    width: 10vw;
+  }
 }
 
 .review-swipe {
@@ -1069,6 +1163,15 @@
   }
 }
 
+@media (max-width: 568px) {
+  .review-form-container {
+    display: none;
+  }
+  .review-swipe {
+    margin-bottom: 0px;
+  }
+}
+
 .subscribe-to-newsletter-container {
   width: 80vw;
   margin: auto;
@@ -1159,6 +1262,43 @@
   top: 10%;
   width: 12vw;
   right: 2vw;
+}
+
+@media (max-width: 568px) {
+  .subscribe-to-newsletter-container {
+    width: 100vw;
+    height: 50vw;
+    padding: 5vw 0;
+    margin-bottom: 0;
+  }
+  .subscribe-to-newsletter-container h1 {
+    font-size: 6vw;
+    margin-top: 1vw;
+    margin-bottom: 2.5vw;
+  }
+  .subscribe-to-newsletter-container p {
+    font-size: 3vw;
+    margin-bottom: 10vw;
+  }
+  .subscribe-to-newsletter-container .input-container {
+    width: 70%;
+    height: 9vw;
+  }
+  .subscribe-to-newsletter-container .input-container input {
+    font-size: 3vw;
+  }
+  .subscribe-to-newsletter-container .send-button {
+    font-size: 3vw;
+  }
+  .subscribe-to-newsletter-container .lampi {
+    top: 40%;
+  }
+  .subscribe-to-newsletter-container .orange-arrow {
+    top: 30%;
+    left: 2vw;
+    width: 15vw;
+    height: 15vw;
+  }
 }
 
 .login-page-container {

@@ -38,7 +38,7 @@ const Header: React.FC = () => {
             fill="#472758"
           />
         </svg>
-        Tutor
+        <a href="/" style={{textDecoration: 'none', color: '#4d2c5e'}}>Tutor</a>
       </h1>
       <div className="nav" style={{marginLeft: user ? "10vw" : ""}}>
         <Link to="/" style={{ color: isCoursePage ? "#fff" : "#1d1d1d" }}>
@@ -66,7 +66,7 @@ const Header: React.FC = () => {
       <div
         className="profile-and-signin"
         style={{
-          width: user ? "2vw" : "16.5vw",
+          width: user ? "2vw" : "",
           justifyContent: user ? "center" : "space-between",
         }}
       >
