@@ -159,6 +159,7 @@
 @media (max-width: 568px) {
   .banner-container {
     height: 500px;
+    padding-top: 50px;
     padding-bottom: 50px;
     align-items: baseline;
   }
@@ -306,18 +307,18 @@
 
 @media (max-width: 568px) {
   .header-menu-container {
-    padding-top: 2vw;
-    padding-bottom: 2vw;
+    padding-top: 2.5vw;
+    padding-bottom: 2.5vw;
   }
   .header-menu-container .logo {
-    margin-right: 10vw;
+    margin-right: 5vw;
     font-size: 5vw;
   }
   .header-menu-container .nav {
-    width: 35vw;
+    width: 40vw;
   }
   .header-menu-container .nav a {
-    font-size: 2vw;
+    font-size: 2.5vw;
   }
 }
 
@@ -448,6 +449,7 @@
 }
 
 .proteachers-component-container .header {
+  
   margin-bottom: 65px;
   display: flex;
   align-items: center;
@@ -554,6 +556,12 @@
   background: #f9f9f9;
 }
 
+@media (max-width: 568px) {
+  .proteachers-component-container {
+    display: none;
+  }
+}
+
 .menu-footer-component-container {
   position: relative;
   bottom: -77px;
@@ -607,7 +615,7 @@
   flex-shrink: 0;
 }
 
-@media (max-width: 1432px) {
+@media (max-width: 1432px) and (min-width: 569px) {
   .menu-footer-component-container {
     width: 100%;
     gap: 1vw;
@@ -644,16 +652,34 @@
   .menu-footer-component-container .div p {
     color: rgba(255, 255, 255, 0.6);
     font-family: Roboto;
-    font-size: 1vw;
+    font-size: 1.3vw;
     font-style: normal;
     font-weight: 500;
     line-height: 1.5vw;
+    letter-spacing: 1px;
+    word-spacing: 2px;
     width: 18vw;
     height: 88px;
     flex-shrink: 0;
   }
 }
-
+@media (max-width: 568px) {
+  .menu-footer-component-container {
+    width: 100%;
+    gap: 1vw;
+    position: relative;
+    height: 40vw;
+    overflow: scroll;
+  }
+  .menu-footer-component-container .div h1{
+    font-size: 5.5vw;
+    margin: 0;
+  }
+  .menu-footer-component-container .div p {
+    font-size: 4vw;
+    margin: 0;
+  }
+}
 .study-field-component-container {
   width: 100%;
   padding-left: 5%;
@@ -726,7 +752,7 @@
   margin-right: 7px;
 }
 
-@media (max-width: 1493px) {
+@media (max-width: 1493px) and (min-width: 569px) {
   .study-field-component-container .search-container {
     width: 35vw;
     margin-top: 2vw;
@@ -773,6 +799,51 @@
     height: 30vw;
   }
 }
+@media (max-width: 568px) {
+  .study-field-component-container {
+    margin-top: 30vw;
+    padding-left: 0;
+    position: relative;
+  }
+  .study-field-component-container img {
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 15vw;
+    width: 100%;
+  }
+  .study-field-component-container .left h1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0 auto;
+    width: 100%;
+    margin-left: 10px;
+    text-align: start;
+    font-size: 8.5vw;
+  }
+  .study-field-component-container .left h1 span {
+    font-size: 8.5vw;
+  }
+  .study-field-component-container .search-container {
+    width: 80vw;
+    position: absolute;
+    bottom: -15vw;
+    left: 50%;
+    background-color: transparent;
+    transform: translateX(-50%);
+    height: auto
+  }
+  .study-field-component-container .search-container select {
+    width: 50vw;
+  }
+  .study-field-component-container .field-search-btn {
+    width: 20vw;
+    height: 7vw;
+    font-size: 4vw;
+    margin-right: 10px;
+  }
+}
+
 
 .study-field-component-container .left {
   display: flex;
