@@ -1,0 +1,144 @@
+@font-face {
+    font-family: Roboto;
+    src: url('../fonts/Roboto-VariableFont_wdth\wght.ttf') format('truetype');
+}
+@font-face {
+    font-family: Inter;
+    src: url('../fonts/Inter_24pt-Regular.ttf') format('truetype');
+}
+.profilemodal {
+    position: absolute;
+    height: 10vw;
+    width: 15vw;
+    top: 120px;
+    background-color: #fff;
+    right: 5vw;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    color: red;
+    font-family: Inter;
+}
+.modalprofile {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1vw;
+}
+.modalprofile img {
+    height: 2.5vw;
+    width: 2.5vw;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.username-email {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    width: 10vw;
+}
+.modal-username {
+    font-size: 1.2vw;
+    font-weight: 600;
+    color: #333;
+    margin-left: 5px;
+}
+.modal-email {
+    font-size: 1vw;
+    color: #868686;
+}
+
+.logout {
+    margin-left: 1vw;
+    cursor: pointer;
+    font-size: 1vw;
+    color: #868686;
+}
+
+hr {
+    width: 13vw;
+    margin-left: 1vw;
+    margin-bottom: 1vw;
+    border-top: 0px solid #e0e0e0;
+}
+
+.Account {
+    margin-left: 1vw;
+    font-size: 1vw;
+    margin-bottom: 0.5vw;
+    cursor: pointer;
+    color: #333;
+}
+
+@media (max-width: 1000px) and (min-width: 569px) {
+    .profilemodal {
+        height: 12vw;
+        width: 20vw;
+        top: 100px;
+        right: 2.5vw;
+    }
+    .modalprofile img {
+        height: 3.5vw;
+        width: 3.5vw;
+    }
+    .username-email {
+        width: 14vw;
+    }
+    .modal-username {
+        font-size: 1.5vw;
+    }
+    .modal-email {
+        font-size: 1.2vw;
+    }
+    .logout {
+        font-size: 1.2vw;
+    }
+    hr {
+        width: 18vw;
+    }
+    .Account {
+        font-size: 1.2vw;
+    }
+}
+
+@media (max-width: 568px) {
+    .profilemodal {
+        height: 28vw;
+        width: 45vw;
+        top: 60px;
+        right: 3vw;
+        border-radius: 0px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    }
+    .modalprofile {
+        padding: 10px;
+    }
+    .modalprofile img {
+        height: 8vw;
+        width: 8vw;
+    }
+    .username-email {
+        width: 31vw;
+    }
+    .modal-username {
+        font-size: 3.5vw;
+    }
+    .modal-email {
+        font-size: 2.5vw;
+    }
+    .logout {
+        font-size: 2.5vw;
+        margin-left: 10px;
+    }
+    hr {
+        margin-left: 10px;
+        width: 40vw;
+        margin-bottom: 5px;
+    }
+    .Account {
+        font-size: 2.5vw;
+        margin-left: 10px;
+        margin-bottom: 2vw;
+    }
+}

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import login_banner from "../assets/Frame 2.svg";
 import { useAuth } from "../contexts/AuthContext";
-
+import "../styles/login.css";
 
 
 function LoginPage() {

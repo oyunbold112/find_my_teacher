@@ -52,7 +52,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     // Option A: Decode token if it contains user info
     try {
       const decoded = JSON.parse(atob(token.split(".")[1])); // assuming JWT
-      return { username: decoded.username, email: decoded.email }; // shape depends on your token
+      return { username: decoded.username, email: decoded.email, user_id: decoded.user_id }; // shape depends on your token
     } catch (err) {
       return null;
     }

@@ -1,16 +1,59 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import profile_icon from "../assets/profile-icon.svg";
 import { Link, useLocation } from "react-router-dom";
-import { useAuth } from "../contexts/AuthContext";
+import { API_URL, useAuth } from "../contexts/AuthContext";
+import "../styles/profilemodal.css";
+import student_icon from '../assets/student.png';
+import axios from "axios";
 const Header: React.FC = () => {
+  const [userDetails, setUserDetails] = useState<any>(null);
   const location = useLocation();
+  const [isOpen, setIsOpen] = useState(false);
   const isCoursePage = location.pathname === "/reservation"; // Check if the current page is the course page
   const { user } = useAuth();
+
+  useEffect(() => {
+    if (userDetails === null) {
+      try {
+        axios.get(`${API_URL}/users/${user?.user_id}/`, {
+        })
+        .then((response) => {
+          setUserDetails(response.data);
+        });
+      }
+      catch (error) {
+        console.error("Error fetching user details:", error);
+    }
+  }
+  }, [user]);
+  const { logoutUser } = useAuth();
+  const handleLogout = () => {
+    logoutUser();
+    setIsOpen(false);
+  };
   return (
     <div
       className="header-menu-container"
       style={{ backgroundColor: isCoursePage ? "#4d2c5e" : "#fdf8ee" }}
     >
+        {isOpen && (
+          <div className="profilemodal">
+            {userDetails ? (
+              <div className="modalprofile">
+                <img src={student_icon} alt="" />
+                <div className="username-email">
+                  <p className="modal-username">{userDetails.username}</p>
+                  <p className="modal-email">{userDetails.email}</p>
+                </div>
+              </div>
+            ) : (
+              <p>Profile</p>
+            )}
+            <hr />
+            <p className="Account">Account</p>
+            <p className="logout" onClick={handleLogout}>Log out</p>
+          </div>
+        )}
       <h1
         className="logo"
         style={{
@@ -72,6 +115,7 @@ const Header: React.FC = () => {
       >
         <div
           className="profile"
+          onClick={() => {isOpen ? setIsOpen(!isOpen) : setIsOpen(!isOpen)}}
           style={{ border: isCoursePage ? " 0.2vw solid #fff" : "#4d2c5e" }}
         >
           <img src={profile_icon} alt="" className="profile-icon" />

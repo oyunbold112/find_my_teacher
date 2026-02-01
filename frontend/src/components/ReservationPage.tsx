@@ -4,6 +4,7 @@ import axios from "axios";
 import { useLessonSearch } from "../hooks/useLessonSearch";
 import type { CourseCardProps } from "./CourseCard";
 import { API_URL } from "../contexts/AuthContext";
+import "../styles/reservationspage.css";
 import {
   ReservationContext,
 } from "../contexts/reservationContext";
@@ -36,6 +37,7 @@ export interface ReservationContextType {
 
 const ReservationPage = () => {
   const [courses, setCourses] = useState<CourseCardProps[]>([]);
+  const [selectedDay, setSelectedDay] = useState<number | null>(null);
   const [lessontypes, setLessontypes] = useState<lessonTypes[]>([]);
   const [inputLessonType, setType] = useState<string>("");
   const [inputDuration, setDuration] = useState<number | string>("");
@@ -122,7 +124,6 @@ const ReservationPage = () => {
   };
   const handleDayClick = (e: React.MouseEvent<HTMLElement>, day: number) => {
     const target = e.target as HTMLElement;
-    target.style.backgroundColor = "#f8f8f8";
     if (target.parentElement?.className === "day-container") {
       target.parentElement.style.backgroundColor = "#f8f8f8";
     }
@@ -133,6 +134,7 @@ const ReservationPage = () => {
         day + 1
       ).toISOString()
     );
+    setSelectedDay(day);
   };
   function getDaysInMonth(year: number, month: number): number {
     // month is 0-indexed: January = 0, December = 11
@@ -325,7 +327,7 @@ const ReservationPage = () => {
             {[...Array(daysInMonth)].map((_, i) => (
               <div
                 onClick={(event) => handleDayClick(event, i + 1)}
-                className="day-container"
+                className={`day-container ${selectedDay === i + 1 ? "selected" : ""}`}
                 key={i}
               >
                 <p>{i + 1}</p>
