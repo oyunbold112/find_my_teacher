@@ -357,38 +357,40 @@
 
 .teachers-component-container {
   background: #4d2c5e;
-  width: 1920px;
+  width: 100vw;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding-bottom: 96px;
+  padding-bottom: 300px;
 }
 
 .teacher-container {
   position: relative;
-  width: 1516px;
-  height: 835px;
+  width: 80vw;
+  height: 45vw;
   flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   background: white;
-  margin-top: 96px;
+  margin-top: 8vw;
   border-radius: 30px;
   background: #fff;
 }
 
 .teacher-container .info-container {
   display: flex;
-  gap: 139px;
+  gap: 5vw;
+  width: 100%;
+  justify-content: center;
   align-items: center;
 }
 .info-container .right {
   display: flex;
-  width: 381px;
+  width: 40%;
   flex-direction: column;
   align-items: flex-start;
-  gap: 31px;
+  gap: 1.5vw;
   flex-shrink: 0;
 }
 
@@ -397,17 +399,17 @@
   font-family: Poppins;
   font-size: 16px;
   font-style: normal;
+  width: 100%;
   font-weight: 500;
   line-height: normal;
-  width: 346px;
-  height: 74px;
+  
 }
 
 .info-container .right h1 {
   text-transform: capitalize;
   color: #000;
-  font-family: Poppins;
-  font-size: 36px;
+  font-family: Inter;
+  font-size: 40px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
@@ -415,22 +417,25 @@
 
 .teacher-container .bg {
   position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 .teacher-container .left {
-  width: 376px;
-  height: 373px;
+  width: 27vw;
+  height: 27vw;
   flex-shrink: 0;
 }
 
 .teacher-container .left img {
-  width: 376px;
-  height: 373px;
-  flex-shrink: 0;
+  width: 100%;
+  height: 100%;
 }
-
+  
 .send-mail-btn {
-  width: 191px;
-  height: 65px;
+  width: 60%;
+  height: 49px;
   flex-shrink: 0;
   border-radius: 218px;
   background: #4d2c5e;
@@ -442,16 +447,18 @@
   line-height: normal;
 }
 
-.left-arrow {
-  position: absolute;
-  left: 132.77px;
-  bottom: 137.28px;
-}
-
 .right-arrow {
   position: absolute;
   top: 143.74px;
   right: 143.62px;
+}
+
+@media (max-width: 1400px) {
+  .right-arrow {
+    top: 0;
+    right: 10px;
+    width: 15vw;
+  }
 }
 
 .proteachers-component-container {

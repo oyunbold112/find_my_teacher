@@ -2,7 +2,13 @@ import React from "react";
 import clock_image from '../assets/clock.svg';
 // import banner_bg_png from '../assets/Group 360 (1).png';
 import teachers from '../assets/teachers.svg';
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 const Banner: React.FC = () => {
+  const navigate = useNavigate();
+  const handleContinue = () => {
+    navigate('/reservation');
+  }
   return (
     <div className="banner-container">
       
@@ -39,8 +45,8 @@ const Banner: React.FC = () => {
             </defs>
           </svg> */}
           <p>Search for a lessons...</p>
-          <button id="search-button">
-            Continue
+          <button onClick={handleContinue} id="search-button">
+            <Link style={{width: '100%', height: '100%', color: "white", textDecoration: "none"}} to="/reservation">Continue</Link>
           </button>
         </div>
       </div>

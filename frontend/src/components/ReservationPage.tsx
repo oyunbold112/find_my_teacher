@@ -5,9 +5,7 @@ import { useLessonSearch } from "../hooks/useLessonSearch";
 import type { CourseCardProps } from "./CourseCard";
 import { API_URL } from "../contexts/AuthContext";
 import "../styles/reservationspage.css";
-import {
-  ReservationContext,
-} from "../contexts/reservationContext";
+import { ReservationContext } from "../contexts/reservationContext";
 interface lessonTypes {
   name: string;
   display_name: string;
@@ -20,7 +18,7 @@ interface Mylessons {
   lesson_title: string;
   reservation_time: string;
   student: number;
-  student_email: string,
+  student_email: string;
   teacher_email: string;
 }
 
@@ -38,6 +36,7 @@ export interface ReservationContextType {
 const ReservationPage = () => {
   const [courses, setCourses] = useState<CourseCardProps[]>([]);
   const [selectedDay, setSelectedDay] = useState<number | null>(null);
+  const [selectedTime, setSelectedTime] = useState<number | null>(null);
   const [lessontypes, setLessontypes] = useState<lessonTypes[]>([]);
   const [inputLessonType, setType] = useState<string>("");
   const [inputDuration, setDuration] = useState<number | string>("");
@@ -45,9 +44,9 @@ const ReservationPage = () => {
   const [calendarDate, setCalendarDate] = useState(new Date());
   const chosenField = localStorage.getItem("field");
   const { reservation_date, saveReservationDate } = React.useContext(
-    ReservationContext
+    ReservationContext,
   ) as ReservationContextType;
-  const [ mylessons, setMyLessons ] = useState<Mylessons[]>([]);
+  const [mylessons, setMyLessons] = useState<Mylessons[]>([]);
   const [filters, setFilters] = useState<Filters>({
     lesson_type: "",
     description: "",
@@ -57,46 +56,34 @@ const ReservationPage = () => {
   useEffect(() => {
     async function fetchLessonTypes() {
       try {
-        const response = await axios.get(
-          `${API_URL}/lessons/lessontypes/`,
-          {
-            headers: {
-              Authorization: `Bearer ${
-                JSON.parse(localStorage.getItem("authTokens") ?? "{}")?.access
-              }`,
-            },
-          }
-        );
+        const response = await axios.get(`${API_URL}/lessons/lessontypes/`, {
+          headers: {
+            Authorization: `Bearer ${
+              JSON.parse(localStorage.getItem("authTokens") ?? "{}")?.access
+            }`,
+          },
+        });
         setLessontypes(response.data);
-      } catch (error) {
-        
-      }
+      } catch (error) {}
     }
     async function fetchMyLessons() {
       try {
-        const response = await axios.get(
-          `${API_URL}/lessons/reservations/`,
-          {
-            headers: {
-              Authorization: `Bearer ${
-                JSON.parse(localStorage.getItem("authTokens") ?? "{}")?.access
-              }`,
-            }
-          })
+        const response = await axios.get(`${API_URL}/lessons/reservations/`, {
+          headers: {
+            Authorization: `Bearer ${
+              JSON.parse(localStorage.getItem("authTokens") ?? "{}")?.access
+            }`,
+          },
+        });
         setMyLessons(response.data);
-      } catch (error) {
-        
-      }
+      } catch (error) {}
     }
     fetchLessonTypes();
     fetchMyLessons();
     if (chosenField) {
       setType(chosenField);
     } else {
-      
     }
-
-    
   }, []);
   useEffect(() => {
     setCourses(lessons || []);
@@ -116,35 +103,35 @@ const ReservationPage = () => {
     } else {
       if (e.target.value === "") {
         setDuration("");
-      }
-      else {
-      setDuration(parseInt(e.target.value));
+      } else {
+        setDuration(parseInt(e.target.value));
       }
     }
   };
   const handleDayClick = (e: React.MouseEvent<HTMLElement>, day: number) => {
     const target = e.target as HTMLElement;
     if (target.parentElement?.className === "day-container") {
-      target.parentElement.style.backgroundColor = "#f8f8f8";
+      target.parentElement.style.backgroundColor = "#333";
     }
     saveReservationDate(
       new Date(
         calendarDate.getFullYear(),
         calendarDate.getMonth(),
-        day + 1
-      ).toISOString()
+        day + 1,
+      ).toISOString(),
     );
     setSelectedDay(day);
   };
+
   function getDaysInMonth(year: number, month: number): number {
     // month is 0-indexed: January = 0, December = 11
     return new Date(year, month, 0).getDate();
   }
   const daysInMonth = getDaysInMonth(
     calendarDate.getFullYear(),
-    calendarDate.getMonth() + 1
+    calendarDate.getMonth() + 1,
   );
-  function handleTimeClick(e: React.MouseEvent<HTMLElement>) {
+  function handleTimeClick(e: React.MouseEvent<HTMLElement>, num: number) {
     const target = e.target as HTMLElement;
     const timeString = target.innerHTML.trim(); // "4:30PM"
 
@@ -162,18 +149,19 @@ const ReservationPage = () => {
     date.setMinutes(minute);
     date.setSeconds(0);
     date.setMilliseconds(0);
-    console.log(date)
-    console.log(hour)
-    if (date.toString() == 'Invalid Date') {
+    console.log(date);
+    console.log(hour);
+    if (date.toString() == "Invalid Date") {
       alert("Invalid Date");
-      return
+      return;
     }
     saveReservationDate(date.toISOString());
+    setSelectedTime(num)
   }
 
   function handleMonthChange(e: React.MouseEvent<HTMLElement>) {
     const target = e.target as HTMLElement;
-    
+
     if (
       target.classList[0] === "prev" ||
       target.parentElement?.classList[0] === "prev"
@@ -183,16 +171,15 @@ const ReservationPage = () => {
         return;
       } else {
         setCalendarDate(
-          new Date(calendarDate.getFullYear(), calendarDate.getMonth() - 1)
+          new Date(calendarDate.getFullYear(), calendarDate.getMonth() - 1),
         );
         console.log(
-          new Date(calendarDate.setMonth(calendarDate.getMonth() - 1))
+          new Date(calendarDate.setMonth(calendarDate.getMonth() - 1)),
         );
-        
       }
     } else {
       setCalendarDate(
-        new Date(calendarDate.setMonth(calendarDate.getMonth() + 1))
+        new Date(calendarDate.setMonth(calendarDate.getMonth() + 1)),
       );
     }
   }
@@ -298,15 +285,15 @@ const ReservationPage = () => {
                 new Date(
                   calendarDate.getFullYear(),
                   calendarDate.getMonth(),
-                  0
-                ).getDay()
+                  0,
+                ).getDay(),
               ),
             ]
               .map((_, i) => {
                 const prevMonthLastDate = new Date(
                   calendarDate.getFullYear(),
                   calendarDate.getMonth(),
-                  0
+                  0,
                 );
                 const day = prevMonthLastDate.getDate() - i;
                 return (
@@ -337,12 +324,12 @@ const ReservationPage = () => {
           <div className="available-hours">
             <h1>Боломжит цагууд</h1>
             <div className="hours">
-              <p onClick={handleTimeClick}>9:00 AM</p>
-              <p onClick={handleTimeClick}>10:30AM</p>
-              <p onClick={handleTimeClick}>12:00PM</p>
-              <p onClick={handleTimeClick}>1:30PM</p>
-              <p onClick={handleTimeClick}>3:00PM</p>
-              <p onClick={handleTimeClick}>4:30PM</p>
+              <p onClick={(event) => handleTimeClick(event, 1)} className={`${selectedTime === 1 ? "selected" : ""}`}>9:00 AM</p>
+              <p onClick={(event) => handleTimeClick(event, 2)} className={`${selectedTime === 2 ? "selected" : ""}`}>10:30AM</p>
+              <p onClick={(event) => handleTimeClick(event, 3)} className={`${selectedTime === 3 ? "selected" : ""}`}>12:00PM</p>
+              <p onClick={(event) => handleTimeClick(event, 4)} className={`${selectedTime === 4 ? "selected" : ""}`}>1:30PM</p>
+              <p onClick={(event) => handleTimeClick(event, 5)} className={`${selectedTime === 5 ? "selected" : ""}`}>3:00PM</p>
+              <p onClick={(event) => handleTimeClick(event, 6)} className={`${selectedTime === 6 ? "selected" : ""}`}>4:30PM</p>
             </div>
           </div>
         </div>
@@ -365,14 +352,12 @@ const ReservationPage = () => {
               2025/11/15, 14:00 цагаас , Хангайхүү багшийн 40 минутын хичээл
             </p>
           </div> */}
-          {
-            mylessons.map((lesson, index) => (
-              <div className="lesson" key={index}>
-                <h1>{lesson.lesson_title}</h1>
-                <p>{lesson.is_booked}</p>
-              </div>
-            ))
-          }
+          {mylessons.map((lesson, index) => (
+            <div className="lesson" key={index}>
+              <h1>{lesson.lesson_title}</h1>
+              <p>{lesson.is_booked}</p>
+            </div>
+          ))}
         </div>
       </div>
     </div>

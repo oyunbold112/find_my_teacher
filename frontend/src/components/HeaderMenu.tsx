@@ -58,7 +58,6 @@ const Header: React.FC = () => {
         className="logo"
         style={{
           color: isCoursePage ? "#fff" : "#4d2c5e",
-          
         }}
       >
         <svg
@@ -81,7 +80,7 @@ const Header: React.FC = () => {
             fill="#472758"
           />
         </svg>
-        <a href="/" style={{textDecoration: 'none', color: '#4d2c5e'}}>Tutor</a>
+        <a href="/" style={{textDecoration: 'none', color: isCoursePage ? '#fff' : '#4d2c5e'}}>Tutor</a>
       </h1>
       <div className="nav" style={{marginLeft: user ? "10vw" : ""}}>
         <Link to="/" style={{ color: isCoursePage ? "#fff" : "#1d1d1d" }}>
