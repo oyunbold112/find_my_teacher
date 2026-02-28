@@ -4,7 +4,7 @@ import { ReservationContext } from '../contexts/reservationContext';
 import type { ReservationContextType } from '../components/ReservationPage';
 import axios from 'axios';
 import { API_URL } from '../contexts/AuthContext';
-
+import teacheravatar from '../assets/proteacherone.svg'
 export interface CourseCardProps {
   description: string;
   id: number;
@@ -37,15 +37,17 @@ const CourseCard: React.FC<CourseCardProps> = ({ description, id, lesson_duratio
       })
       response.then(() => {});
     } catch (error) {
-      
     }
   }
   return (
-    <div className={styles.card}>
-      <img src={teacher_profile.profile_picture} alt={`${teacher_profile.first_name} avatar`} className={styles.avatar} />
+    <div style={{
+      height: description.length > 100 ? "200px" : "140px"
+
+    }} className={styles.card}>
+      <img src={teacheravatar} alt={`${teacher_profile.first_name} avatar`} className={styles.avatar} />
       <div className={styles.info}>
         <h4>{title}</h4>
-        <p>{description}</p>
+        <p className={styles.description}>{description}</p>
         <p className={styles.instructor}>{teacher_profile.first_name} {teacher_profile.last_name}</p>
       </div>
       <button className={styles.button} onClick={handleSubmit}>Хичээл авах</button>

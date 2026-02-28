@@ -16,6 +16,17 @@
   margin-bottom: 60px;
 }
 
+.description {
+  max-height: 120px;
+  overflow: scroll;
+}
+
+@media (max-width: 1268px) {
+  .card {
+    width: 100%;
+    margin-bottom: 40px;
+  }
+}
 .avatar {
   width: 64px;
   height: 64px;
@@ -29,11 +40,9 @@
   margin-right: 16px;
   color: #4d2c5e;
 }
-
 .info p {
   overflow: hidden;
 }
-
 .instructor {
   font-weight: bold;
   color: #4d2c5e;
