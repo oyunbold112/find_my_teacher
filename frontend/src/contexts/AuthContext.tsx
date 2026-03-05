@@ -10,7 +10,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 // ... (Энд Context-ийн бүх код орно)
 export const API_URL =
-  "https://findmyteacher-production-b7aa.up.railway.app/api";
+  "https://find-my-teacher-uyop.onrender.com/api";
 interface AuthTokens {
   access: string;
   refresh: string;
