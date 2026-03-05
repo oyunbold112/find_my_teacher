@@ -53,6 +53,18 @@ const ReservationPage = () => {
     lesson_duration: null,
   });
   const { lessons } = useLessonSearch(filters);
+  async function fetchMyLessons() {
+    try {
+      const response = await axios.get(`${API_URL}/lessons/reservations/`, {
+        headers: {
+          Authorization: `Bearer ${
+            JSON.parse(localStorage.getItem("authTokens") ?? "{}")?.access
+          }`,
+        },
+      });
+      setMyLessons(response.data);
+    } catch (error) {}
+  }
   useEffect(() => {
     async function fetchLessonTypes() {
       try {
@@ -64,18 +76,6 @@ const ReservationPage = () => {
           },
         });
         setLessontypes(response.data);
-      } catch (error) {}
-    }
-    async function fetchMyLessons() {
-      try {
-        const response = await axios.get(`${API_URL}/lessons/reservations/`, {
-          headers: {
-            Authorization: `Bearer ${
-              JSON.parse(localStorage.getItem("authTokens") ?? "{}")?.access
-            }`,
-          },
-        });
-        setMyLessons(response.data);
       } catch (error) {}
     }
     fetchLessonTypes();
@@ -94,6 +94,11 @@ const ReservationPage = () => {
       lesson_type: inputLessonType,
       description: inputDescription,
       lesson_duration: inputDuration,
+    });
+    window.scrollBy({
+      top: 500, // pixels to scroll
+      left: 0,
+      behavior: "smooth",
     });
   };
 
@@ -156,7 +161,7 @@ const ReservationPage = () => {
       return;
     }
     saveReservationDate(date.toISOString());
-    setSelectedTime(num)
+    setSelectedTime(num);
   }
 
   function handleMonthChange(e: React.MouseEvent<HTMLElement>) {
@@ -324,12 +329,42 @@ const ReservationPage = () => {
           <div className="available-hours">
             <h1>Боломжит цагууд</h1>
             <div className="hours">
-              <p onClick={(event) => handleTimeClick(event, 1)} className={`${selectedTime === 1 ? "selected" : ""}`}>9:00 AM</p>
-              <p onClick={(event) => handleTimeClick(event, 2)} className={`${selectedTime === 2 ? "selected" : ""}`}>10:30AM</p>
-              <p onClick={(event) => handleTimeClick(event, 3)} className={`${selectedTime === 3 ? "selected" : ""}`}>12:00PM</p>
-              <p onClick={(event) => handleTimeClick(event, 4)} className={`${selectedTime === 4 ? "selected" : ""}`}>1:30PM</p>
-              <p onClick={(event) => handleTimeClick(event, 5)} className={`${selectedTime === 5 ? "selected" : ""}`}>3:00PM</p>
-              <p onClick={(event) => handleTimeClick(event, 6)} className={`${selectedTime === 6 ? "selected" : ""}`}>4:30PM</p>
+              <p
+                onClick={(event) => handleTimeClick(event, 1)}
+                className={`${selectedTime === 1 ? "selected" : ""}`}
+              >
+                9:00 AM
+              </p>
+              <p
+                onClick={(event) => handleTimeClick(event, 2)}
+                className={`${selectedTime === 2 ? "selected" : ""}`}
+              >
+                10:30AM
+              </p>
+              <p
+                onClick={(event) => handleTimeClick(event, 3)}
+                className={`${selectedTime === 3 ? "selected" : ""}`}
+              >
+                12:00PM
+              </p>
+              <p
+                onClick={(event) => handleTimeClick(event, 4)}
+                className={`${selectedTime === 4 ? "selected" : ""}`}
+              >
+                1:30PM
+              </p>
+              <p
+                onClick={(event) => handleTimeClick(event, 5)}
+                className={`${selectedTime === 5 ? "selected" : ""}`}
+              >
+                3:00PM
+              </p>
+              <p
+                onClick={(event) => handleTimeClick(event, 6)}
+                className={`${selectedTime === 6 ? "selected" : ""}`}
+              >
+                4:30PM
+              </p>
             </div>
           </div>
         </div>
@@ -338,7 +373,7 @@ const ReservationPage = () => {
         <div className="reservation-result-container">
           <h1 className="header">Хичээл орох боломжит багш нар</h1>
           {courses.map((course, index) => (
-            <CourseCard key={index} {...course} />
+            <CourseCard onBook={fetchMyLessons} key={index} {...course} />
           ))}
         </div>
       )}

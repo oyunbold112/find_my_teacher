@@ -2,6 +2,10 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+button {
+  cursor: pointer;
+}
 ::-webkit-scrollbar {
   display: none;
 }
@@ -114,6 +118,7 @@
 }
 
 #search-button {
+  margin-right: 0.5vw;
   color: #fff;
   font-family: Roboto;
   font-size: 1vw;

@@ -74,24 +74,36 @@
   color: #4d2c5e;
 }
 
+@media (min-width: 1400px) {
+  .footer-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .footer-section .desc,
+  .footer-section ul li,
+  .bottom-bar {
+    font-size: 1.4vw;
+  }
+}
+
 @media (max-width: 768px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+  }
   .footer-section h2.logo {
     font-size: 6vw;
   }
-
   .footer-section h3 {
     font-size: 5vw;
   }
-
   .footer-section .desc,
   .footer-section ul li,
   .bottom-bar {
     font-size: 4vw;
   }
-
   .footer-link {
     width: 40vw;
   }
-}.footer-section .desc {
+}
+.footer-section .desc {
   color: #555;
 }

@@ -30,7 +30,7 @@ const Footer: React.FC = () => {
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21391.92756591655!2d106.90962604999999!3d47.91721265!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5d969366c8b6b9a7%3A0x46313f3d850bf7cc!2sMN%20Tower%20Mongolia!5e0!3m2!1smn!2smn!4v1755920884665!5m2!1smn!2smn"
             width="100%"
-            height="150"
+            height="100%"
             style={{ border: 0 }}
             loading="lazy"
             allowFullScreen
@@ -39,7 +39,7 @@ const Footer: React.FC = () => {
       </div>
 
       <div className="bottom-bar">
-        tutor All Right Reserved, 2025
+        Tutor All Right Reserved, 2025
       </div>
     </footer>
   );

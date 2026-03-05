@@ -27,10 +27,11 @@ export function useLessonSearch(filters: Filters) {
       setLoading(true);
       setError(null);
       const hasFilters =
-        filters &&
         (filters.lesson_type != "" ||
           filters.description != "" ||
           filters.lesson_duration != null);
+          console.log("hasFilters:", hasFilters);
+          console.log("lessontype:", filters.lesson_type);
       if (hasFilters) {
         try {
           console.log(filters.lesson_duration);

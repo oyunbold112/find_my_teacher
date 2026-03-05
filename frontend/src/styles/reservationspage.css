@@ -8,7 +8,7 @@
 }
 
 .reservation-page-container .reservation-form-container {
-  width: 85vw;
+  width: 84vw;
   display: flex;
   justify-content: space-between;
   margin-bottom: 100px;
@@ -60,12 +60,13 @@
   border-radius: 20px;
   border: 2px solid #e6ebf1;
   background: #fafafa;
+  font-size: medium;
   width: 100%;
 }
 
 .reservation-page-container .search-container input {
   display: flex;
-  height: 18vw;
+  height: 16vw;
   padding: 1.5vw;
   justify-content: space-between;
   align-items: flex-start;
@@ -97,6 +98,7 @@
   width: 40vw;
   height: 55vw;
   padding: 3vw;
+  padding-top: 2.5vw;
   flex-direction: column;
   align-items: flex-start;
   gap: 2vw;
@@ -117,6 +119,8 @@
   color: #4d2c5e;
   font-family: Inter;
   font-size: 2vw;
+  display: flex;
+  align-items: center;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
@@ -143,11 +147,11 @@
 .reservation-page-container .book-lesson-container .weekdays-container p {
   display: flex;
   width: 4.4vw;
-  height: 4.4vw;
+  height: 4vw;
   padding: 2vw 1vw 2vw 1vw;
   color: #482e5b;
   font-family: Inter;
-  font-size: 1.5vw;
+  font-size: 1vw;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
@@ -167,13 +171,13 @@
 .reservation-page-container .book-lesson-container .days-container > * {
   color: #3b72a4;
   font-family: Inter;
-  font-size: 1.5vw;
+  font-size: 1vw;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
   display: flex;
   width: 4.4vw;
-  height: 4.4vw;
+  height: 4vw;
   padding: 2vw 0 2vw 0;
   justify-content: center;
   align-items: center;
@@ -182,10 +186,16 @@
   background: #f2fafd;
 }
 
+@media (max-width: 1700px) {
+  .reservation-page-container .book-lesson-container .days-container > * {
+    border-radius: 10px;
+  }
+}
+
 .reservation-page-container .book-lesson-container .available-hours h1 {
   color: #482e5b;
   font-family: Inter;
-  font-size: 1.5vw;
+  font-size: 1.3vw;
   margin-bottom: 10px;
   font-style: normal;
   font-weight: 600;
@@ -201,7 +211,7 @@
 
 .reservation-page-container .book-lesson-container .available-hours .hours > * {
   display: flex;
-  padding: 1.5vw 3vw 1.5vw 3vw;
+  padding: 1vw 3vw 1vw 3vw;
   justify-content: center;
   align-items: center;
   border-radius: 12px;
@@ -234,7 +244,7 @@
 }
 
 .reservation-page-container .reservation-result-container {
-  margin-top: 100px;
+  margin-top: 10px;
   width: 85vw;
   display: flex;
   justify-content: space-between;
@@ -334,14 +344,40 @@
   .reservation-page-container .search-container {
     height: 59vw;
   }
+  .reservation-page-container .search-container .label {
+    font-size: 1.4vw;
+  }
+  .reservation-page-container .search-container .header {
+    font-size: 2vw;
+  }
   .reservation-page-container .book-lesson-container {
     height: 59vw;
   }
+  .reservation-page-container .search-container .more-filter-container input {
+    height: 15vw;
+  } 
+
 }
 
 @media (max-width: 900px) and (min-width: 701px) {
   .reservation-page-container .search-container {
-    height: 62vw;
+    height: 65vw;
+  }
+  .reservation-page-container .book-lesson-container {
+    height: 65vw;
+  }
+  .reservation-page-container .search-container .label {
+    font-size: 1.6vw;
+  }
+  .reservation-page-container .search-container .header {
+    font-size: 2.5vw;
+  }
+  .reservation-page-container .book-lesson-container .header h1 {
+    font-size: 2.5vw;
+  }
+  .reservation-page-container select {
+    font-size: 1.6vw;
+    padding: 0;
   }
 }
 
@@ -351,6 +387,19 @@
   }
   .reservation-page-container .book-lesson-container {
     height: 65vw;
+  }
+  .reservation-page-container .search-container .label {
+    font-size: 1.6vw;
+  }
+  .reservation-page-container select {
+    font-size: 1.6vw;
+    padding: 0;
+  }
+  .reservation-page-container .search-container .header {
+    font-size: 2.5vw;
+  }
+  .reservation-page-container .book-lesson-container .header h1 {
+    font-size: 2.5vw;
   }
 }
 
