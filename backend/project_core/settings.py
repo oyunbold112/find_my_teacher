@@ -22,7 +22,7 @@ DEBUG = os.getenv('DEBUG', 'False') == 'False'
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
-    'https://find-my-teacher-uyop.onrender.com',
+    'find-my-teacher-uyop.onrender.com',
 ]
 
 
