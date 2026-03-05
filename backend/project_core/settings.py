@@ -22,7 +22,7 @@ DEBUG = os.getenv('DEBUG', 'False') == 'False'
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
-    'https://find-my-teacher-uyop.onrender.com/',
+    'https://find-my-teacher-uyop.onrender.com',
 ]
 
 
@@ -208,7 +208,7 @@ REST_AUTH = {
 
 CSRF_TRUSTED_ORIGINS = [
     'https://find-my-teacher-beryl.vercel.app',
-    'https://find-my-teacher-uyop.onrender.com/',
+    'https://find-my-teacher-uyop.onrender.com',
     'http://127.0.0.1:8000',
     'http://localhost:8000'
 ]
