@@ -3,7 +3,7 @@ import profile_icon from "../assets/profile-icon.svg";
 import { Link, useLocation } from "react-router-dom";
 import { API_URL, useAuth } from "../contexts/AuthContext";
 import "../styles/profilemodal.css";
-import student_icon from '../assets/student.png';
+import student_icon from "../assets/student.png";
 import axios from "axios";
 const Header: React.FC = () => {
   const [userDetails, setUserDetails] = useState<any>(null);
@@ -15,16 +15,13 @@ const Header: React.FC = () => {
   useEffect(() => {
     if (userDetails === null) {
       try {
-        axios.get(`${API_URL}/users/${user?.user_id}/`, {
-        })
-        .then((response) => {
+        axios.get(`${API_URL}/users/${user?.user_id}/`, {}).then((response) => {
           setUserDetails(response.data);
         });
-      }
-      catch (error) {
+      } catch (error) {
         console.error("Error fetching user details:", error);
+      }
     }
-  }
   }, [user]);
   const { logoutUser } = useAuth();
   const handleLogout = () => {
@@ -36,24 +33,27 @@ const Header: React.FC = () => {
       className="header-menu-container"
       style={{ backgroundColor: isCoursePage ? "#4d2c5e" : "#fdf8ee" }}
     >
-        {isOpen && (
-          <div className="profilemodal">
-            {userDetails ? (
-              <div className="modalprofile">
-                <img src={student_icon} alt="" />
-                <div className="username-email">
-                  <p className="modal-username">{userDetails.username}</p>
-                  <p className="modal-email">{userDetails.email}</p>
-                </div>
+      {isOpen && (
+        <div className="profilemodal">
+          {userDetails ? (
+            <div className="modalprofile">
+              <img src={student_icon} alt="" />
+              <div className="username-email">
+                <p className="modal-username">{userDetails.username}</p>
+                <p className="modal-email">{userDetails.email}</p>
               </div>
-            ) : (
-              <p>Profile</p>
-            )}
-            <hr />
-            <p className="Account">Account</p>
-            <p className="logout" onClick={handleLogout}>Log out</p>
-          </div>
-        )}
+            </div>
+          ) : (
+            <p>Loading profile...</p>
+          )}
+          <hr />
+          <p className="Account">Account</p>
+          <p className="logout" onClick={handleLogout}>
+            Log out
+          </p>
+        </div>
+      )}
+
       <h1
         className="logo"
         style={{
@@ -80,9 +80,17 @@ const Header: React.FC = () => {
             fill="#472758"
           />
         </svg>
-        <a href="/" style={{textDecoration: 'none', color: isCoursePage ? '#fff' : '#4d2c5e'}}>Tutor</a>
+        <a
+          href="/"
+          style={{
+            textDecoration: "none",
+            color: isCoursePage ? "#fff" : "#4d2c5e",
+          }}
+        >
+          Tutor
+        </a>
       </h1>
-      <div className="nav" style={{marginLeft: user ? "10vw" : ""}}>
+      <div className="nav" style={{ marginLeft: user ? "10vw" : "" }}>
         <Link to="/" style={{ color: isCoursePage ? "#fff" : "#1d1d1d" }}>
           Home
         </Link>
@@ -114,7 +122,9 @@ const Header: React.FC = () => {
       >
         <div
           className="profile"
-          onClick={() => {isOpen ? setIsOpen(!isOpen) : setIsOpen(!isOpen)}}
+          onClick={() => {
+            isOpen ? setIsOpen(!isOpen) : setIsOpen(!isOpen);
+          }}
           style={{ border: isCoursePage ? " 0.2vw solid #fff" : "#4d2c5e" }}
         >
           <img src={profile_icon} alt="" className="profile-icon" />
